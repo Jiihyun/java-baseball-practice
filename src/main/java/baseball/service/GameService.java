@@ -7,7 +7,7 @@ public class GameService {
     //같은 수 같은 자리 - 스트라이크
     //같은 수 다른 자리 - 볼
     //같은 수 전혀 없으면 - 낫싱
-    public BaseballResult result(BaseBallRecord numbers, BaseBallRecord randomNumber) {
+    public BaseballResult gameResult(BaseBallRecord numbers, BaseBallRecord randomNumber) {
 
         int ballCount = ballCount(numbers, randomNumber);
         int strikeCount = strikeCount(numbers, randomNumber);

@@ -4,7 +4,7 @@ import baseball.model.BaseballResult;
 
 public class GameView {
 
-    public void view(BaseballResult result) {
+    public void render(BaseballResult result) {
 
         int ballCount = result.getBallCount();
         int strikeCount = result.getStrikeCount();

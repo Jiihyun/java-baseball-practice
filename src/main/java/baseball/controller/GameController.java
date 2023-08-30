@@ -35,8 +35,8 @@ public class GameController {
             printer.printPutNumInfo();
             ArrayList<Integer> numbers = reader.readNum();
             BaseBallRecord numberByUser = BaseBallRecord.from(numbers);
-            BaseballResult result = gameService.result(numberByUser, randomNumber);
-            gameview.view(result);
+            BaseballResult result = gameService.gameResult(numberByUser, randomNumber);
+            gameview.render(result);
             if (result.getStrikeCount() == 3) {
                 break;
             }
