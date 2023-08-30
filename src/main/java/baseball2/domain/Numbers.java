@@ -5,7 +5,6 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class Numbers {
@@ -19,9 +18,22 @@ public class Numbers {
         this.thirdNum = thirdNum;
     }
 
-    public List<Integer> generateRandomNum() {
+    public int getFirstNum() {
+        return firstNum;
+    }
+
+    public int getSecondNum() {
+        return secondNum;
+    }
+
+    public int getThirdNum() {
+        return thirdNum;
+    }
+
+    public Numbers generateRandomNum() {
         Set<Integer> numberSet = new HashSet<>();
         numberSet.add(Randoms.pickNumberInRange(NumberConsts.START_INCLUSIVE, NumberConsts.END_INCLUSIVE));
-        return new ArrayList<>(numberSet);
+        ArrayList<Integer> integers = new ArrayList<>(numberSet);
+        return new Numbers(integers.get(0), integers.get(1), integers.get(2));
     }
 }
