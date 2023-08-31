@@ -25,6 +25,10 @@ public class GameController {
                 break;
             }
         }
+        restartOrQuit();
+    }
+
+    private void restartOrQuit() {
         try {
             int startOrNot = InputView.readNewStartOrNot();
             if (startOrNot == 1) {
