@@ -1,21 +1,45 @@
 package baseball2.domain;
 
-import baseball2.util.NumberConsts;
-import camp.nextstep.edu.missionutils.Randoms;
+import baseball2.util.MessageConsts;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 public class Numbers {
-    int firstNum;
-    int secondNum;
-    int thirdNum;
+    private final int firstNum;
+    private final int secondNum;
+    private final int thirdNum;
+    private final List<Integer> numList;
 
-    public Numbers(int firstNum, int secondNum, int thirdNum) {
+    public Numbers(int firstNum, int secondNum, int thirdNum, List<Integer> numList) {
         this.firstNum = firstNum;
         this.secondNum = secondNum;
         this.thirdNum = thirdNum;
+        this.numList = numList;
+    }
+
+    public static Numbers inputNums(List<String> stringNumList) {
+        validateLength(stringNumList);
+        ArrayList<Integer> nums = new ArrayList<>();
+
+        for (String str : stringNumList) {
+            int num = Integer.parseInt(str);
+            validateNumber(num);
+            nums.add(num);
+        }
+        return new Numbers(nums.get(0), nums.get(1), nums.get(2), nums);
+    }
+
+    private static void validateLength(List<String> stringNumList) {
+        if (stringNumList.size() != 3) {
+            throw new IllegalArgumentException(MessageConsts.NUMBER_LENGTH_EXCEPTION);
+        }
+    }
+
+    private static void validateNumber(int number) {
+        if (number < 1 || number > 9) {
+            throw new IllegalArgumentException(MessageConsts.NUMBER_RANGE_EXCEPTION);
+        }
     }
 
     public int getFirstNum() {
@@ -30,10 +54,8 @@ public class Numbers {
         return thirdNum;
     }
 
-    public Numbers generateRandomNum() {
-        Set<Integer> numberSet = new HashSet<>();
-        numberSet.add(Randoms.pickNumberInRange(NumberConsts.START_INCLUSIVE, NumberConsts.END_INCLUSIVE));
-        ArrayList<Integer> integers = new ArrayList<>(numberSet);
-        return new Numbers(integers.get(0), integers.get(1), integers.get(2));
+    public List<Integer> getNumList() {
+        return numList;
     }
+
 }

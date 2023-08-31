@@ -21,7 +21,11 @@ public final class InputView {
 
     public static int readNewStartOrNot() {
         System.out.println(MessageConsts.NEW_START_INFO_MSG);
-        return Integer.parseInt(Console.readLine());
+        int startOrNot = Integer.parseInt(Console.readLine());
+        if (startOrNot != 1 && startOrNot != 2) {
+            throw new IllegalArgumentException(MessageConsts.NEW_START_INFO_MSG);
+        }
+        return startOrNot;
     }
 
     //리터럴은 절대 null 안 됨
