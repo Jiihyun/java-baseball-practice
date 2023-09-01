@@ -2,6 +2,7 @@ package baseball2.controller;
 
 import baseball2.domain.Numbers;
 import baseball2.domain.Rules;
+import baseball2.util.MessageConsts;
 import baseball2.util.RandomNumberGenerator;
 import baseball2.view.InputView;
 import baseball2.view.OutputView;
@@ -21,7 +22,8 @@ public class GameController {
             List<String> stringNumList = InputView.readNumbers();
             Numbers inputNums = Numbers.inputNums(stringNumList);
             OutputView.printGameResult(rules, inputNums, randomNums);
-            if (rules.strikeCount(inputNums, randomNums) == 3) {
+            if (rules.getGameResult(inputNums, randomNums).equals("3스트라이크")) {
+                System.out.println(MessageConsts.GAME_OVER_MSG);
                 break;
             }
         }

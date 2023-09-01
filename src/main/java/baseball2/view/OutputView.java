@@ -10,16 +10,6 @@ public class OutputView {
     }
 
     public static void printGameResult(Rules rules, Numbers inputNums, Numbers randomNums) {
-        if (rules.isNothing()) {
-            System.out.println("낫싱");
-        }
-        if (rules.strikeCount(inputNums, randomNums) == 3) {
-            printGameOver();
-        }
-        rules.getGameResult();
-        System.out.println();
-//        System.out.print(rules.ballCount(inputNums, randomNums) + "볼 ");
-//        System.out.println(rules.strikeCount(inputNums, randomNums) + "스트라이크");
-
+        System.out.println(rules.getGameResult(inputNums, randomNums));
     }
 }

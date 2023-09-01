@@ -1,15 +1,9 @@
 package baseball2.domain;
 
 public class Rules {
-    private int ballCount;
-    private int strikeCount;
-
-    public Rules(int ballCount, int strikeCount) {
-        this.ballCount = ballCount;
-        this.strikeCount = strikeCount;
-    }
 
     public int strikeCount(Numbers inputNums, Numbers randomNums) {
+        int strikeCount = 0;
         if (inputNums.getFirstNum() == randomNums.getFirstNum()) {
             strikeCount++;
         }
@@ -31,27 +25,29 @@ public class Rules {
             }
         }
         int strikeCount = strikeCount(inputNums, randomNum);
-        ballCount = ballCountIncludeStrikeCount - strikeCount;
+        int ballCount = ballCountIncludeStrikeCount - strikeCount;
         return ballCount;
     }
 
-    public boolean isNothing() {
-        return strikeCount == 0 && ballCount == 0;
+    public boolean isNothing(Numbers inputNums, Numbers randomNum) {
+        return strikeCount(inputNums, randomNum) == 0 && ballCount(inputNums, randomNum) == 0;
         //imp - strikeCount와 ballCount가 반복돼서 필드로 빼쥼
 //        return (strikeCount(inputNums, randomNum) == 0) && (ballCount(inputNums, randomNum) == 0);
     }
 
-    public String getGameResult() {
+    public String getGameResult(Numbers inputNums, Numbers randomNum) {
+        int strikeCount = strikeCount(inputNums, randomNum);
+        int ballCount = ballCount(inputNums, randomNum);
         StringBuilder sb = new StringBuilder();
-        if (isNothing()) {
-            return "낫싱\n";
+        if (isNothing(inputNums, randomNum)) {
+            return "낫싱";
         }
         if (ballCount > 0) {
-            sb.append(String.format("%볼 ", ballCount));
+            sb.append(String.format("%d볼 ", ballCount));
 //            sb.append(ballCount).append("볼 ");
         }
         if (strikeCount > 0) {
-            sb.append(String.format("%스트라이크", strikeCount));
+            sb.append(String.format("%d스트라이크", strikeCount));
         }
         return sb.toString();
     }

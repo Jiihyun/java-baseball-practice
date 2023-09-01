@@ -5,7 +5,7 @@ import baseball2.domain.Rules;
 
 public class Application {
     public static void main(String[] args) {
-        Rules rules = new Rules(0, 0);
+        Rules rules = new Rules();
         GameController gameController = new GameController(rules);
 
         gameController.start();
