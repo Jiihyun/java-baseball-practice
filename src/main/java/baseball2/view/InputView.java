@@ -28,11 +28,5 @@ public final class InputView {
         return startOrNot;
     }
 
-    //리터럴은 절대 null 안 됨
-    //NullPointerException이 날 수 없기 때문에 이 방법 더 선호
-    //"1".equals(number)
 
-    //number가 null이 되면
-    //null.equals로 NullPointerException
-    //number.equals("1");
 }

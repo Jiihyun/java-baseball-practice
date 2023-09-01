@@ -1,9 +1,15 @@
 package baseball2.domain;
 
 public class Rules {
+    private int ballCount;
+    private int strikeCount;
+
+    public Rules(int ballCount, int strikeCount) {
+        this.ballCount = ballCount;
+        this.strikeCount = strikeCount;
+    }
 
     public int strikeCount(Numbers inputNums, Numbers randomNums) {
-        int strikeCount = 0;
         if (inputNums.getFirstNum() == randomNums.getFirstNum()) {
             strikeCount++;
         }
@@ -18,27 +24,36 @@ public class Rules {
 
     //ballCount가 strike조건까지 포함하는디,,
     public int ballCount(Numbers inputNums, Numbers randomNum) {
-        int ballCount = 0;
+        int ballCountIncludeStrikeCount = 0;
         for (Integer num : inputNums.getNumList()) {
             if (randomNum.getNumList().contains(num)) {
-                ballCount++;
+                ballCountIncludeStrikeCount++;
             }
         }
         int strikeCount = strikeCount(inputNums, randomNum);
-        return ballCount - strikeCount;
+        ballCount = ballCountIncludeStrikeCount - strikeCount;
+        return ballCount;
     }
 
-    public boolean isNothing(Numbers inputNums, Numbers randomNum) {
-        return (strikeCount(inputNums, randomNum) == 0) && (ballCount(inputNums, randomNum) == 0);
+    public boolean isNothing() {
+        return strikeCount == 0 && ballCount == 0;
+        //imp - strikeCount와 ballCount가 반복돼서 필드로 빼쥼
+//        return (strikeCount(inputNums, randomNum) == 0) && (ballCount(inputNums, randomNum) == 0);
     }
 
-    public boolean isStrike(Numbers inputNums, Numbers randomNum) {
-        return strikeCount(inputNums, randomNum) > 0;
+    public String getGameResult() {
+        StringBuilder sb = new StringBuilder();
+        if (isNothing()) {
+            return "낫싱\n";
+        }
+        if (ballCount > 0) {
+            sb.append(String.format("%볼 ", ballCount));
+//            sb.append(ballCount).append("볼 ");
+        }
+        if (strikeCount > 0) {
+            sb.append(String.format("%스트라이크", strikeCount));
+        }
+        return sb.toString();
     }
-
-    public boolean isBall(Numbers inputNums, Numbers randomNum) {
-        return ballCount(inputNums, randomNum) > 0;
-    }
-
 
 }
