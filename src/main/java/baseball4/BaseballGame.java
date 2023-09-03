@@ -16,6 +16,28 @@ public class BaseballGame {
     private final ComputerUtil computerUtil = new ComputerUtil();
     private List<Integer> computerNums;
 
+    public BaseballGame() {
+        messageUtil.printInitMsg();
+    }
+
+    public void startGame() {
+        int gameControlNum = RESTART_NUM;
+        computerNums = computerUtil.generateRandomNumber();
+
+        while (gameControlNum == RESTART_NUM) {
+            messageUtil.printInputMsg();
+            String userInput = userUtil.getInputNumber();
+            List<Integer> userNums = inputValidation.validateInputNum(userInput);
+
+            ResultCount result = compareNumber(computerNums, userNums);
+            int ball = result.ballCount;
+            int strike = result.strikeCount;
+            messageUtil.printResultMsg(ball, strike);
+
+            gameControlNum = checkStrikeCount(strike);
+        }
+    }
+
     private ResultCount compareNumber(List<Integer> computerNums, List<Integer> userNums) {
         int ball = 0;
         int strike = 0;
