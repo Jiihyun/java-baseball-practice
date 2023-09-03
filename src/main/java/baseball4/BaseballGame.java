@@ -7,8 +7,7 @@ import baseball4.validation.InputValidation;
 
 import java.util.List;
 
-import static baseball4.constant.NumberConst.MAX_STRIKE;
-import static baseball4.constant.NumberConst.RESTART_NUM;
+import static baseball4.constant.NumberConst.*;
 
 public class BaseballGame {
     private final UserUtil userUtil = new UserUtil();
@@ -16,6 +15,25 @@ public class BaseballGame {
     private final InputValidation inputValidation = new InputValidation();
     private final ComputerUtil computerUtil = new ComputerUtil();
     private List<Integer> computerNums;
+
+    private ResultCount compareNumber(List<Integer> computerNums, List<Integer> userNums) {
+        int ball = 0;
+        int strike = 0;
+
+        for (int i = 0; i < INPUT_LENGTH; i++) {
+            int computerNum = computerNums.get(i);
+            int userNum = userNums.get(i);
+
+            if (computerNum == userNum) {
+                strike++;
+                continue;
+            }
+            if (computerNums.contains(userNum)) {
+                ball++;
+            }
+        }
+        return new ResultCount(ball, strike);
+    }
 
     private int checkStrikeCount(int strike) {
         int gameControlInput = RESTART_NUM;
