@@ -43,4 +43,10 @@ public class InputValidation {
             throw new IllegalArgumentException(INPUT_DUPLICATE_EXCEPTION_MSG);
         }
     }
+
+    public void validateGameControlInput(int input) {
+        if (input < RESTART_NUM || input > EXIT_NUM) {
+            throw new IllegalArgumentException(GAME_CONTROL_EXCEPTION_MSG);
+        }
+    }
 }
