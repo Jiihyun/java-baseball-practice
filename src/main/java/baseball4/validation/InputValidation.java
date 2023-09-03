@@ -31,7 +31,7 @@ public class InputValidation {
 
     private void validateInputRange(List<Integer> inputList) {
         boolean checkRange = inputList.stream().
-                allMatch(num -> FIRST_RANGE >= num && num <= LAST_RANGE);
+                allMatch(num -> FIRST_RANGE <= num && num <= LAST_RANGE);
 
         if (!checkRange) {
             throw new IllegalArgumentException(INPUT_RANGE_EXCEPTION_MSG);
