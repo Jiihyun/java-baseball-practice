@@ -15,7 +15,6 @@ public class RandomNumberGenerator {
         while (numberSet.size() < NUMBER_DIGIT) {
             numberSet.add(Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE));
         }
-
         return Numbers.from(new ArrayList<>(numberSet));
     }
 }
