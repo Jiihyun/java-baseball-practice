@@ -2,7 +2,7 @@
 
 ### RandomNumberGenerator
 
-- 랜덤으로 3자리수 생성 (서로 다른 수로 이루어져야 함)-> Number class 리턴 []
+- 랜덤으로 3자리수 생성 (서로 다른 수로 이루어져야 함)-> Numbers class 리턴 [o]
 
 ### NumberComparator
 
