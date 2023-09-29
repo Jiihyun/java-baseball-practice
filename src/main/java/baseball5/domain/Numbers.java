@@ -30,4 +30,8 @@ public class Numbers {
             throw new IllegalArgumentException(NUMBER_DUPLICATED_EXCEPTION);
         }
     }
+
+    public List<Integer> getNumberList() {
+        return numberList;
+    }
 }

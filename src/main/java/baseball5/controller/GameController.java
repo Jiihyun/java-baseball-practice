@@ -17,8 +17,8 @@ public class GameController {
     }
 
     public void start() {
-        Numbers conputerNumbers = randomNumberGenerator.generate();
-        Numbers inputNumber = inputView.inputNumber();
+        Numbers computerNum = randomNumberGenerator.generate();
+        Numbers inputNum = inputView.inputNumber();
 
     }
 }
