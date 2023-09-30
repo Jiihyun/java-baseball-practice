@@ -23,6 +23,7 @@ public class InputView {
     }
 
     public Numbers inputNumber() {
+        outputView.printInputNumberMsg();
         ArrayList<Integer> userNums = new ArrayList<>();
         String numStr = Console.readLine();
         validateNumber(numStr);
