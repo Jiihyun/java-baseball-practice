@@ -1,5 +1,7 @@
 package baseball5.view;
 
+import baseball5.domain.GameResult;
+
 import static baseball5.util.MessageConst.*;
 
 public class OutputView {
@@ -7,7 +9,7 @@ public class OutputView {
         System.out.print(INPUT_NUMBER_MSG);
     }
 
-    public void printGameResult(String result) {
+    public void printGameResult(GameResult result) {
         System.out.println(result);
     }
 

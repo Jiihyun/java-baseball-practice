@@ -31,7 +31,11 @@ public class Numbers {
         }
     }
 
-    public List<Integer> getNumberList() {
-        return numberList;
+    public boolean compareAt(int index, Numbers other) {
+        return numberList.get(index).equals(other.numberList.get(index));
+    }
+
+    public boolean containAt(int index, Numbers other) {
+        return numberList.contains(other.numberList.get(index));
     }
 }
