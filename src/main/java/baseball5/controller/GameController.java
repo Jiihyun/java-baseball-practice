@@ -31,5 +31,17 @@ public class GameController {
                 break;
             }
         }
+        restartOrNot();
+    }
+
+    private void restartOrNot() {
+        try {
+            boolean restart = inputView.inputRestartOrNot();
+            if (restart) {
+                start();
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

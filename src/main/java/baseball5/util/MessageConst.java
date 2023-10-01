@@ -10,5 +10,6 @@ public class MessageConst {
     public static final String NUMBER_SIZE_EXCEPTION = "3자리수를 입력해주세요.\n";
     public static final String NUMBER_INPUT_EXCEPTION = "숫자만 입력해주세요.\n";
     public static final String NUMBER_DUPLICATED_EXCEPTION = "서로 다른 세자리수를 입력해주세요.\n";
+    public static final String RESTART_NUMBER_EXCEPTION = "1혹은 2만 입력 가능합니다.";
 
 }

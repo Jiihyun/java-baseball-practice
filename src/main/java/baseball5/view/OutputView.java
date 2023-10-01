@@ -1,7 +1,6 @@
 package baseball5.view;
 
-import static baseball5.util.MessageConst.GAME_END_MSG;
-import static baseball5.util.MessageConst.INPUT_NUMBER_MSG;
+import static baseball5.util.MessageConst.*;
 
 public class OutputView {
     public void printInputNumberMsg() {
@@ -14,5 +13,9 @@ public class OutputView {
 
     public void printGameOverMsg() {
         System.out.println(GAME_END_MSG);
+    }
+
+    public void printRestartOrNotMsg() {
+        System.out.println(GAME_RESTART_MSG);
     }
 }
